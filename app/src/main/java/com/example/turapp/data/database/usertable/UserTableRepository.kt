@@ -3,7 +3,7 @@ package com.example.turapp.data.database.usertable
 import kotlinx.coroutines.flow.Flow
 
 class UserTableRepository(private val userTableDao: UserTableDao) {
-    fun getUser(phoneNumber: String): Flow<UserTable> {
+    fun getUser(phoneNumber: String): UserTable? {
         return userTableDao.getUser(phoneNumber)
     }
 
@@ -18,4 +18,9 @@ class UserTableRepository(private val userTableDao: UserTableDao) {
     suspend fun update(userTable: UserTable) {
         userTableDao.updateUser(userTable)
     }
+
+    fun doesUserExist(phoneNumber: String): Boolean{
+        return getUser(phoneNumber) != null
+    }
+
 }

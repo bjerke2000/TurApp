@@ -12,7 +12,7 @@ interface UserTableDao {
     suspend fun delete(userTable: UserTable)
 
     @Query("Select * FROM user WHERE phone = :phoneNumber")
-    fun getUser(phoneNumber: String): Flow<UserTable>
+    fun getUser(phoneNumber: String): UserTable?
 
     @Update
     suspend fun updateUser(userTable:UserTable)
