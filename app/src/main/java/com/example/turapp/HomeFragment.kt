@@ -6,15 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.lifecycleScope
-import com.example.turapp.data.api.TripApi
 import com.example.turapp.data.api.tables.User
 import com.example.turapp.data.model.TripViewModel
 import com.example.turapp.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -31,12 +26,10 @@ class HomeFragment : Fragment() {
         val fragmentBinding = FragmentHomeBinding.inflate(inflater, container, false)
         binding = fragmentBinding
         binding?.lifecycleOwner = this
-        lifecycleScope.launch {
-            user = withContext(Dispatchers.IO) {
-                TripApi.retrofitService.getUserByPhone("99966633")[0]
-            }
-
-            binding?.defaultText!!.text = user.name.toString()
+        viewModel.addUser("99966633")
+        viewModel.getUser("99966633")
+        viewModel.currentUser.observe(viewLifecycleOwner) {value ->
+            binding?.defaultText!!.text = value?.name
         }
         return fragmentBinding.root
     }

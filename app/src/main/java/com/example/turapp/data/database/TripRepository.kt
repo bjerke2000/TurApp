@@ -20,8 +20,13 @@ class TripRepository @Inject constructor(
         return userTableDao.getUser(phoneNumber)
     }
 
-    suspend fun insert(userTable: UserTable) {
-        userTableDao.insert(userTable)
+    suspend fun insert(userTable: UserTable) : UserTable? {
+        if (doesUserExist(userTable.phone)) {
+            return null
+        } else {
+            userTableDao.insert(userTable)
+            return userTable
+        }
     }
 
     suspend fun delete(userTable: UserTable) {
