@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/loginRegisterFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -15,17 +15,13 @@
             app:destination="@id/tripCreator" />
     </fragment>
     <fragment
-        android:id="@+id/loginRegisterFragment"
-        android:name="com.example.turapp.ui.login.LoginRegisterFragment"
-        android:label="fragment_login_register"
-        tools:layout="@layout/fragment_login_register" >
-        <action
-            android:id="@+id/action_loginRegisterFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/tripCreator"
         android:name="com.example.turapp.TripCreator"
         android:label="fragment_trip_creator"
         tools:layout="@layout/fragment_trip_creator" />
+    <fragment
+        android:id="@+id/registerLoginFragment"
+        android:name="com.example.turapp.RegisterLoginFragment"
+        android:label="fragment_register_login"
+        tools:layout="@layout/fragment_register_login" />
 </navigation>
