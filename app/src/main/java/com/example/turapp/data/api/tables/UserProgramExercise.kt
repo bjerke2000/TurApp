@@ -1,5 +1,6 @@
 package com.example.turapp.data.api.tables
 
+import com.example.turapp.data.database.userexercise.UserExerciseTable
 import com.squareup.moshi.Json
 
 data class UserProgramExercise (

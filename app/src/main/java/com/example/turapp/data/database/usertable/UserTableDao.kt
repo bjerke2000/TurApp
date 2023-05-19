@@ -14,6 +14,12 @@ interface UserTableDao {
     @Query("Select * FROM user WHERE phone = :phoneNumber")
     fun getUser(phoneNumber: String): UserTable?
 
+    @Query("SELECT COUNT(*) FROM user")
+    fun getUserCount(): Int
+
+    @Query("SELECT * FROM user LIMIT 1")
+    fun getFirstUser(): UserTable?
+
     @Update
     suspend fun updateUser(userTable:UserTable)
 }

@@ -11,4 +11,18 @@ class UserExercise (
     @Json(name = "description") val description: String = "",
     @Json(name = "icon") val icon: String = "", //TODO legg inn standard icon
     @Json(name = "infobox_color") val infoboxColor: String = "" //TODO legg inn standard infobox farge
-    )
+    ){
+    fun ApiToDB(userProgramExercise: UserProgramExercise): UserExerciseTable {
+        return UserExerciseTable(
+            liveID = id,
+            userProgramId = userProgramExercise.userProgramId,
+            userId = userId,
+            name = name,
+            photoUrl = photoUrl,
+            description = description,
+            icon = icon,
+            infoboxColor = infoboxColor,
+            mtmId = userProgramExercise.id
+        )
+    }
+}

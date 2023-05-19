@@ -2,13 +2,13 @@ package com.example.turapp.data.database.user_program_session
 
 import androidx.room.*
 import androidx.room.ForeignKey.Companion.CASCADE
-import com.example.turapp.data.database.user_program.UserProgram
+import com.example.turapp.data.database.user_program.UserProgramTable
 
 @Entity(
     tableName = "user_program_session",
     foreignKeys = [
         ForeignKey(
-            entity = UserProgram::class,
+            entity = UserProgramTable::class,
             parentColumns = ["id"],
             childColumns = ["user_program_id"],
             onDelete = CASCADE
@@ -18,7 +18,7 @@ import com.example.turapp.data.database.user_program.UserProgram
         Index(value = ["user_program_id"])
     ]
 )
-data class UserProgramSession (
+data class UserProgramSessionTable (
     @PrimaryKey @ColumnInfo(name = "id") val id : Int,
     @ColumnInfo(name = "user_program_session_id") val userProgramSessionId: Int,
     @ColumnInfo(name = "user_program_id") val userProgramId : Int,

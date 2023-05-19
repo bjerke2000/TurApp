@@ -6,14 +6,14 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface AppProgramTypeDao {
     @Query("SELECT * FROM app_program_type")
-    fun getAllAppProgramTypes(): Flow<List<AppProgramType>>
+    fun getAllAppProgramTypes(): Flow<List<AppProgramTypeTable>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAppProgramType(appProgramType: AppProgramType)
+    suspend fun insertAppProgramType(appProgramTypeTable: AppProgramTypeTable)
 
     @Delete
-    suspend fun deleteAppProgramType(appProgramType: AppProgramType)
+    suspend fun deleteAppProgramType(appProgramTypeTable: AppProgramTypeTable)
 
     @Update
-    suspend fun updateAppProgramType(appProgramType: AppProgramType)
+    suspend fun updateAppProgramType(appProgramTypeTable: AppProgramTypeTable)
 }

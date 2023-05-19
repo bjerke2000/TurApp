@@ -62,6 +62,9 @@ interface TripApiService {
     @GET("user_exercise")
     suspend fun getAllUserExercises(): List<UserExercise>
 
+    @GET("user_program_exercise")
+    suspend fun getUserProgramExercisesByProgramID(@Query("user_program_id") id: Int): List<UserProgramExercise>
+
 
     @GET("app_program_type/{id}")
     suspend fun getAppProgramType(@Path("id") id: Int): AppProgramType

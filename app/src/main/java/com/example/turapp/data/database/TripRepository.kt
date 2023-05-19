@@ -29,6 +29,10 @@ class TripRepository @Inject constructor(
         }
     }
 
+    suspend fun getFirstUser() = userTableDao.getFirstUser()
+
+    suspend fun getUserCount() = userTableDao.getUserCount()
+
     suspend fun delete(userTable: UserTable) {
         userTableDao.delete(userTable)
     }

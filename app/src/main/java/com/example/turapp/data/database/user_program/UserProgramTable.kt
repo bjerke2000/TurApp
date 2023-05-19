@@ -1,12 +1,12 @@
 package com.example.turapp.data.database.user_program
 
 import androidx.room.*
-import com.example.turapp.data.database.app_program_type.AppProgramType
+import com.example.turapp.data.database.app_program_type.AppProgramTypeTable
 
 @Entity(tableName = "user_program",
     foreignKeys = [
         ForeignKey(
-            entity = AppProgramType::class,
+            entity = AppProgramTypeTable::class,
             parentColumns = ["id"],
             childColumns = ["app_program_type_id"],
             onDelete = ForeignKey.CASCADE
@@ -16,7 +16,7 @@ import com.example.turapp.data.database.app_program_type.AppProgramType
         Index(value = ["app_program_type_id"])
     ]
 )
-data class UserProgram (
+data class UserProgramTable (
     @PrimaryKey @ColumnInfo(name = "id") val id: Int,
     @ColumnInfo(name = "user_id") val userId: Int,
     @ColumnInfo(name = "app_program_type_id") val appProgramTypeId: Int,

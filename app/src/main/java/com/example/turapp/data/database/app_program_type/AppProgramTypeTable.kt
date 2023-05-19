@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "app_program_type")
-data class AppProgramType (
+data class AppProgramTypeTable (
     @PrimaryKey @ColumnInfo(name = "id") val id: Int,
     @ColumnInfo(name = "description") val description: String,
     @ColumnInfo(name = "icon") val icon: String,

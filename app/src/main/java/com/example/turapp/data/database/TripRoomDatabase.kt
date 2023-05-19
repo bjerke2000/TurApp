@@ -4,11 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.turapp.data.database.app_program_type.AppProgramType
+import com.example.turapp.data.database.app_program_type.AppProgramTypeTable
 import com.example.turapp.data.database.app_program_type.AppProgramTypeDao
-import com.example.turapp.data.database.user_program.UserProgram
+import com.example.turapp.data.database.user_program.UserProgramTable
 import com.example.turapp.data.database.user_program.UserProgramDao
-import com.example.turapp.data.database.user_program_session.UserProgramSession
+import com.example.turapp.data.database.user_program_session.UserProgramSessionTable
 import com.example.turapp.data.database.user_program_session.UserProgramSessionDao
 import com.example.turapp.data.database.userexercise.UserExerciseTable
 import com.example.turapp.data.database.userexercise.UserExerciseDao
@@ -17,10 +17,10 @@ import com.example.turapp.data.database.usertable.UserTableDao
 
 @Database( entities = [
     UserTable::class,
-    UserProgram::class,
-    UserProgramSession::class,
+    UserProgramTable::class,
+    UserProgramSessionTable::class,
     UserExerciseTable::class,
-    AppProgramType::class], version=2, exportSchema = false)
+    AppProgramTypeTable::class], version=3, exportSchema = false)
 abstract class TripRoomDatabase: RoomDatabase() {
     abstract fun userTableDao(): UserTableDao
     abstract fun userProgramDao(): UserProgramDao
