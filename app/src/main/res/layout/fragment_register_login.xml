@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".RegisterLoginFragment">
 
@@ -7,10 +8,49 @@
         <variable
             name="registerLoginFragment"
             type="com.example.turapp.RegisterLoginFragment" />
+        <variable
+            name="viewModel"
+            type="com.example.turapp.data.model.TripViewModel" />
     </data>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/temp_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/phone_number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/phone_number"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="188dp"
+            android:tooltipText="phone number.."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/answerBtn1"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_margin="0dp"
+            android:backgroundTint="#9C27B0"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="@{() -> registerLoginFragment.loginUser()}"
+            android:tag="0"
+            android:text="Login"
+            android:textSize="50dp"
+            app:cornerRadius="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

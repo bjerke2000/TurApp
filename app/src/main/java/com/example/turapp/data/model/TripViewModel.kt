@@ -28,7 +28,7 @@ class TripViewModel @Inject constructor( private val tripRepository: TripReposit
 
          }
         withContext(Dispatchers.IO) {
-            tripRepository.insert(currentUserApi.ApiToDB(currentUserApi))
+            tripRepository.insertUser(currentUserApi.ApiToDB(currentUserApi))
         }
      }
  }
@@ -39,4 +39,28 @@ class TripViewModel @Inject constructor( private val tripRepository: TripReposit
             }
         }
     }
+
+    fun doesUserExist(phone: String): Boolean{
+        if ( tripRepository.doesUserExist(phone)) {
+            return true
+        } else {
+            var tempUser: User? = null
+            viewModelScope.launch {
+                tempUser = withContext(Dispatchers.IO) {
+                    TripApi.retrofitService.getUserByPhone(phone)[0]
+                }
+            }
+            if (tempUser != null) {
+                viewModelScope.launch {
+                    withContext(Dispatchers.IO) {
+                        tripRepository.insertUser(tempUser!!.ApiToDB(tempUser!!))
+                    }
+                }
+                return true
+            } else {
+                return false
+            }
+        }
+    }
+
 }

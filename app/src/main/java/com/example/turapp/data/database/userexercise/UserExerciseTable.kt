@@ -17,8 +17,9 @@ import com.example.turapp.data.database.user_program.UserProgram
         Index(value = ["user_program_id"])
     ]
 )
-data class UserExercise (
-    @PrimaryKey @ColumnInfo(name = "id") val id: Int,
+data class UserExerciseTable (
+    @PrimaryKey(autoGenerate = true) val id: Int,
+    @ColumnInfo(name = "live_id") val liveID: Int,
     @ColumnInfo(name = "user_program_id") val userProgramId : Int,
     @ColumnInfo(name = "user_id") val userId: Int,
     @ColumnInfo(name = "name") val name: String,

@@ -10,7 +10,7 @@ import com.example.turapp.data.database.user_program.UserProgram
 import com.example.turapp.data.database.user_program.UserProgramDao
 import com.example.turapp.data.database.user_program_session.UserProgramSession
 import com.example.turapp.data.database.user_program_session.UserProgramSessionDao
-import com.example.turapp.data.database.userexercise.UserExercise
+import com.example.turapp.data.database.userexercise.UserExerciseTable
 import com.example.turapp.data.database.userexercise.UserExerciseDao
 import com.example.turapp.data.database.usertable.UserTable
 import com.example.turapp.data.database.usertable.UserTableDao
@@ -19,7 +19,7 @@ import com.example.turapp.data.database.usertable.UserTableDao
     UserTable::class,
     UserProgram::class,
     UserProgramSession::class,
-    UserExercise::class,
+    UserExerciseTable::class,
     AppProgramType::class], version=2, exportSchema = false)
 abstract class TripRoomDatabase: RoomDatabase() {
     abstract fun userTableDao(): UserTableDao

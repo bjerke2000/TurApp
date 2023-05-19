@@ -6,20 +6,20 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface UserExerciseDao {
     @Query("SELECT * FROM user_exercise")
-    fun getAllUserExercises(): Flow<List<UserExercise>>
+    fun getAllUserExercises(): Flow<List<UserExerciseTable>>
 
     @Query("SELECT * FROM user_exercise WHERE id = :id")
-    fun getUserExerciseById(id: Int): Flow<UserExercise?>
+    fun getUserExerciseById(id: Int): Flow<UserExerciseTable?>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertUserExercise(userExercise: UserExercise)
+    suspend fun insertUserExercise(userExerciseTable: UserExerciseTable)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertUserExercises(userExercises: List<UserExercise>)
+    suspend fun insertUserExercises(userExerciseTables: List<UserExerciseTable>)
 
     @Update
-    suspend fun updateUserExercise(userExercise: UserExercise)
+    suspend fun updateUserExercise(userExerciseTable: UserExerciseTable)
 
     @Delete
-    suspend fun deleteUserExercise(userExercise: UserExercise)
+    suspend fun deleteUserExercise(userExerciseTable: UserExerciseTable)
 }
